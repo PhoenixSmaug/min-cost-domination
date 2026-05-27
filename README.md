@@ -49,7 +49,7 @@ Domination of each cell $(i, j)$ is then enforced by:
 
 $$o_{i,j} + \text{Attacks}_{\text{sliding}}(i, j) + \text{Attacks}_{\text{knight}}(i, j) + \text{Attacks}_{\text{pawn}}(i, j) \ge 1$$
 
-where $\text{Attacks}_{\text{sliding}}(i, j)$ is the sum of incoming rays $a_{i,j,d}$ for all valid sliding piece types and directions.
+where $\text{Attacks}\_{\text{sliding}}(i, j)$ is the sum of incoming rays $a_{i,j,d}$ for all valid sliding piece types and directions.
 
 ### 2. Lazy Constraint Encoding
 
