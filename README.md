@@ -55,11 +55,11 @@ where $\text{Attacks}\_{\text{sliding}}(i, j)$ is the sum of incoming rays $a_{i
 
 In practice, modeling the full physical ray propagation network requires a large number of binary variables and constraints. 
 
-Alternatively, we can solve a relaxed model where blocking is initially ignored. Let $D_{i,j}$ represent the set of cells from which a sliding piece could attack cell $(i,j)$ if the board were otherwise empty. We enforce the initial relaxed domination constraints:
+Alternatively, we can solve a relaxed model where blocking is initially ignored. Let $D_{i,j}$ represent the set of cells from which a piece could attack cell $(i,j)$ if the board were otherwise empty. We enforce the initial relaxed domination constraints:
 
 $$\forall i,j: \quad o_{i,j} + \sum_{(r, c) \in D_{i,j}} (\dots) \ge 1$$
 
-Whenever the ILP solver finds an integer candidate solution, we verify the configuration using an early-exit board validation sweep. If any cell is found to be undefended due to blocking, we exclude this specific solution by adding the following constraint:
+Whenever the ILP solver finds an integer candidate solution, we verify the configuration using an early-exit board validation sweep. If any cell is found to be not attacked due to blocking, we exclude this specific solution by adding the following constraint:
 
 $$\sum_{(r, c) \in \mathcal{S}_{\text{active}}} (1 - v_{r,c}) + \sum_{(r, c) \in \mathcal{S}_{\text{inactive}}} v_{r,c} \ge 1$$
 
